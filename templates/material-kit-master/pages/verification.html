@@ -1,0 +1,103 @@
+{% extends 'material-kit-master/dashboardBase.html' %}
+{% load static %}
+{% block body %}
+ <style>
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: transparent; /* Remove background color */
+        }
+        .user-info-card {
+            width: 100%;
+        }
+        .user-info-icons {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .user-info-icons i {
+            margin-right: 5px;
+        }
+        .user-info-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <div class="container center-content">
+        <!-- User Profile Image Circle -->
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="{{parentinfo.image.url }}" alt="User Profile Image" class="profile-image">
+            </div>
+        </div>
+
+        <!-- User Info Section -->
+        <div class="card mt-4 user-info-card">
+            <div class="card-body">
+                <h3 class="card-title" align="center">{{parentinfo.title}} {{parentinfo.first_name}} Information</h3>
+                <div class="user-info-columns">
+                    <div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">person</i> Name: {{parentinfo.title}} {{parentinfo.first_name}} {{parentinfo.middle_name}} {{parentinfo.last_name}}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">email</i> Email: {{parentinfo.email}}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">business</i> Places of Work: {{parentinfo.places_of_work}}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">person</i> Children: {{ parentinfo.pupils.count }}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">phone</i> Phone Number: {{parentinfo.phone_number}}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">location_on</i> Address: {{parentinfo.address}}
+                        </div>
+                    </div>
+
+                     <div>
+                         <h3>Pickers Information</h3>
+                        <div class="user-info-icons">
+                            <i class="material-icons">person</i> Picker's Information: {{add_later}}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">phone</i> Picker's Phone Number: {{parentinfo.phone_number}}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">location_on</i> Security Question: {{parentinfo.picker_security_question}}
+                        </div>
+                         <div class="user-info-icons">
+                            <i class="material-icons">location_on</i> Security Answer: {{parentinfo.picker_security_answer}}
+                        </div>
+
+                    </div>
+                                            <!-- Display Names of Children -->
+
+                        <div class="user-info-icons">
+                            <i class="material-icons">child_care</i> Children Names:
+                            <ul>
+                                {% for pupil in parentinfo.pupils.all %}
+                                    <li>{{ pupil.first_name }} {{ pupil.middle_name }} {{ pupil.last_name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

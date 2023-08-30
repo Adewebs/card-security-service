@@ -1,0 +1,238 @@
+{% load static %}
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
+<link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+<title>
+  Card Security System
+</title>
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+<!-- Nucleo Icons -->
+<link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js"></script>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<!-- CSS Files -->
+<link id="pagestyle" href="{% static 'assets/css/material-kit.css' %}" rel="stylesheet" />
+<!-- Nepcha Analytics (nepcha.com) -->
+<!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+<script defer data-site="agrolearner.com" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+<script>
+    // Function to toggle the dropdown menu
+    function toggleDropdown(dropdownId) {
+      var dropdown = document.getElementById(dropdownId);
+      if (dropdown.classList.contains("show")) {
+        dropdown.classList.remove("show");
+      } else {
+        dropdown.classList.add("show");
+      }
+    }
+
+    // Close the dropdown when clicking outside
+    window.addEventListener("click", function(event) {
+      var dropdowns = document.getElementsByClassName("dropdown-menu");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var dropdown = dropdowns[i];
+        if (dropdown.classList.contains("show") && !event.target.classList.contains("dropdown-toggle")) {
+          dropdown.classList.remove("show");
+        }
+      }
+    });
+  </script>
+</head>
+
+
+<!-- Navbar Light -->
+<body>
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+  <div class="container">
+    <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit-pro/index" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+      Material Kit 2 PRO
+    </a>
+    <a href="https://www.creative-tim.com/product/material-design-system-pro#pricingCard" class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Buy Now</a>
+    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon mt-2">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
+            Pages
+            <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-1">
+          </a>
+
+        </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
+            Account
+            <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
+            Blocks
+            <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+          </a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="button">
+            Docs
+            <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav d-lg-block d-none">
+        <li class="nav-item">
+          <a href="https://www.creative-tim.com/product/material-design-system-pro#pricingCard" class="btn btn-sm  bg-gradient-primary  mb-0 me-1" role="button">Buy Now</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar -->
+
+
+<section class="py-5 bg-gray-200">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ms-auto me-auto text-center">
+        <h3>Some of Our Awesome Products</h3>
+        <p>You get rewarded for unique knowledge, not for effort. Effort is required to create unique knowledge.</p>
+      </div>
+    </div>
+    <div class="row mt-lg-5 mt-4">
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">manage_accounts</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Slack bot</h5>
+            <p class="mb-3">If everything I did failed - which it doesn&#39;t, it actually succeeds - just the fact that I&#39;m willing to fail is an inspiration. People are so scared to lose that they don&#39;t even try. And this is sad.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-primary icon-move-right">
+              Check more
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">face</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Looking great</h5>
+            <p class="mb-3">You have the opportunity to play this game of life you need to appreciate every moment. A lot of people don’t appreciate the moment until it’s motivating the other doers.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-success icon-move-right">
+              See details
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">integration_instructions</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4 px-sm-5 ">
+            <h5 class="mt-2">Developer First</h5>
+            <p class="mb-3">For standing out. But the time is now to be okay to be the greatest you. Would you believe in what you believe in, if you were the only one who believed it? What do you think?</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-warning icon-move-right">
+              View journey
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">public</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Prepare launch</h5>
+            <p class="mb-3">Society has put up so many boundaries, so many limitations on what’s right and wrong that it’s almost impossible to get a pure thought out. It’s like a little kid, a little boy.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-dark icon-move-right">
+              Check out more
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-info shadow-info shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">support</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Premium support</h5>
+            <p class="mb-3">Pink is obviously a better color. Everyone’s born confident, and everything’s taken away from you matters is the people who are sparked by it follow their dreams, too.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-info icon-move-right">
+              See all
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-danger shadow-danger shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">brush</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Design tools</h5>
+            <p class="mb-3">Constantly growing. We’re constantly making mistakes. We’re constantly trying to express ourselves, find the meaning and actualize our dreams the position.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-danger icon-move-right">
+              Find story
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+ <script src="{% static 'assets/js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/core/bootstrap.min.js" type="text/javascript' %}"></script>
+  <script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="{% static 'assets/js/material-kit.min.js'%}" type="text/javascript"></script>
+</body>
+</html>

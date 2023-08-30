@@ -1,0 +1,132 @@
+{% extends 'material-kit-master/dashboardBase.html' %}
+{% load static %}
+{% block body %}
+<!-- End Navbar -->
+
+
+<section class="py-5 bg-gray-200">
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 ms-auto me-auto text-center">
+        <h3>Some of Our Awesome Products</h3>
+        <p>{{request.user.pupils.first_name}}You get rewarded for unique knowledge, not for effort. Effort is required to create unique knowledge.</p>
+      </div>
+    </div>
+    <div class="row mt-lg-5 mt-4">
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">manage_accounts</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Slack bot</h5>
+            <p class="mb-3">
+              fdfskgbdskm;adskjhg,jfadm;lskgbdfskd;lkjb,nfskdlfj
+            </p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-primary icon-move-right">
+              Check more
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">face</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Looking great</h5>
+            <p class="mb-3">You have the opportunity to play this game of life you need to appreciate every moment. A lot of people don’t appreciate the moment until it’s motivating the other doers.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-success icon-move-right">
+              See details
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">integration_instructions</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4 px-sm-5 ">
+            <h5 class="mt-2">QR Code</h5>
+            <p class="mb-3">  <img src="{{ request.user.parentqr.url }}" alt="User Profile Image" width="200" height="130"></p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-warning icon-move-right">
+              View journey
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<!--    children info section start -->
+    <div class="container">
+    <div class="row">
+      <div class="col-md-8 ms-auto me-auto text-center">
+        <h3>Your Children With Us Are</h3>
+      </div>
+    </div>
+
+        <!--for items listing starts-->
+
+        <div class="row mt-lg-5 mt-4">
+        {% for pupil in request.user.pupils.all %}
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">manage_accounts</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">{{ pupil.first_name }}</h5>
+            <p class="mb-3">If everything I did failed - which it doesn&#39;t, it actually succeeds - just the fact that I&#39;m willing to fail is an inspiration. People are so scared to lose that they don&#39;t even try. And this is sad.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-primary icon-move-right">
+              Check more
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+
+<!--          here for output of create gr-->
+          <div class="row mt-lg-5 mt-4">
+         {% for parent in parents %}
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">manage_accounts</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+             <img src="{{ parent.parentqr.url }}" alt="Pupil QR Code" class="card-img-top">
+        </div>
+            <p class="mb-3">If everything I did failed - which it doesn&#39;t, it actually succeeds - just the fact that I&#39;m willing to fail is an inspiration. People are so scared to lose that they don&#39;t even try. And this is sad.</p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-primary icon-move-right">
+              Check more
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

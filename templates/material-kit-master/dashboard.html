@@ -1,0 +1,106 @@
+{% extends 'material-kit-master/dashboardBase.html' %}
+{% load static %}
+{% block body %}
+<!-- End Navbar -->
+
+
+<section class="py-5 bg-gray-200">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ms-auto me-auto text-center">
+        <h3>Dear Parents, We Are Honor To Have You Onboard</h3>
+        <p>{{request.user}} You get rewarded for unique knowledge, not for effort. Effort is required to create unique knowledge, at AdewebsTech, we strive to bring uniqueness to our endeavors</p>
+      </div>
+    </div>
+    <div class="row mt-lg-5 mt-4">
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">manage_accounts</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Update Picker's Info</h5>
+            <p class="mb-1">Updating information about children at school is crucial for maintaining accurate records and ensuring their well-being. Keeping this information up to date helps school staff respond effectively in case of emergencies and enables better communication with parents or guardians. </p>
+            <a href="{% url 'updatepicker' %}" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-primary icon-move-right">
+              Update Now
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">face</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">Current Picker Info</h5>
+            <p class="mb-2">Full Name: {{request.user.picker}}</p>
+            <p class="mb-2">Phone Number: {{request.user.picker_number}}</p>
+            <p class="mb-2">Description: {{request.user.picker_description}}</p>
+            <p class="mb-2">Security Question: {{request.user.picker_security_question}}</p>
+            <p class="mb-2">Security Answer: {{request.user.picker_security_answer}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card mb-3">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">integration_instructions</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4 px-sm-5 ">
+            <h5 class="mt-2">{{request.user.title}} {{request.user.first_name}} Qr Code</h5>
+            <img src="{{ request.user.parentqr.url }}" height="185" width="200" alt="Pupil QR Code" class="card-img-top">
+
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-warning icon-move-right">
+              View journey
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+        <!--for items listing starts-->
+
+        <div class="row mt-lg-5 mt-4">
+        {% for pupil in request.user.pupils.all %}
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card">
+          <div class="ps-4 mt-n4">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl">
+              <i class="material-icons opacity-10">face</i>
+            </div>
+          </div>
+          <div class="card-body border-radius-lg position-relative overflow-hidden pb-4">
+            <h5 class="mt-2">{{ pupil.first_name }} {{ pupil.last_name }}</h5>
+            <p>Full Name: {{ pupil.first_name }} {{ pupil.middle_name }} {{ pupil.last_name }}</p>
+            <p>Registration Number: {{ pupil.registration_number }}</p>
+            <p>Student Class: {{ pupil.class }}</p>
+            <p>School Fee: {{ pupil.school_fee }}</p>
+            <p>Deposit Made: {{ pupil.part_payment }}</p>
+            <p class="mb-3">Teachers' Comment: {{ pupil.teachers_comment }}</p>
+            <p class="mb-3"></p>
+            <a href="javascript:;" class="font-weight-bold text-xs text-uppercase font-weight-bolder text-primary icon-move-right">
+              Check more
+              <i class="fas fa-arrow-right text-xs ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+
+
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

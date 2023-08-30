@@ -1,0 +1,50 @@
+{% extends 'material-kit-master/dashboardBase.html' %}
+{% load static %}
+{% block body %}
+ <style>
+    /* Your existing styles here */
+ </style>
+    <div class="container center-content">
+        <!-- User Profile Image Circle -->
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="{{ request.user.image.url }}" alt="User Profile Image" height="200" width="300" class="profile-image">
+            </div>
+        </div>
+
+        <!-- User Info Section -->
+        <div class="card mt-4 user-info-card">
+            <div class="card-body">
+                <h4 class="card-title" align="center">User Information</h4>
+                <div class="user-info-columns">
+                    <div>
+                        <!-- Other user info here -->
+                        <div class="user-info-icons">
+                            <i class="material-icons">person</i> Name: {{ request.user.title }} {{ request.user.first_name }} {{ request.user.middle_name|first|upper }}. {{ request.user.last_name }}
+                        </div>
+                        <!-- ... other fields ... -->
+                        <div class="user-info-icons">
+                            <i class="material-icons">business</i> Places of Work: {{ request.user.places_of_work }}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">location_on</i> Address: {{ request.user.address }}
+                        </div>
+                        <div class="user-info-icons">
+                            <i class="material-icons">person</i> Number of Pupils: {{ request.user.pupils.count }}
+                        </div>
+
+                        <!-- Display Names of Children -->
+                        <div class="user-info-icons">
+                            <i class="material-icons">child_care</i> Children Names:
+                            <ul>
+                                {% for pupil in request.user.pupils.all %}
+                                    <li>{{ pupil.first_name }} {{ pupil.middle_name }} {{ pupil.last_name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

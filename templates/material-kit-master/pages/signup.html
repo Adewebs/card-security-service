@@ -1,0 +1,76 @@
+{% extends 'material-kit-master/base.html' %}
+{% load static %}
+{% block body %}
+<br> <br><br><br>
+  <!-- End Navbar -->
+  <section>
+  <div class="container py-4">
+      {% if error %}
+  <div class="container py-4 mt-3">
+  <div class="row">
+    <div class="alert alert-danger alert-dismissible text-white fade show" role="alert">
+      <strong>Holy molly!</strong> {{error}}
+      <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>
+  {% endif %}
+    <div class="row">
+      <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+        <h3 class="text-center">Parent's Registration</h3>
+        <form role="form" id="contact-form" action="" method="POST" autocomplete="off">
+          {%  csrf_token %}
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group input-group-dynamic mb-4">
+                  <label class="form-label">First Name</label>
+                  <input class="form-control" name="Fname" aria-label="First Name..." type="text" >
+                </div>
+              </div>
+              <div class="col-md-6 ps-2">
+                <div class="input-group input-group-dynamic">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" name="Lname" class="form-control" placeholder="" aria-label="Last Name..." >
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="input-group input-group-dynamic">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" id="#email" class="form-control">
+              </div>
+
+            <div class="mb-4">
+              <div class="input-group input-group-dynamic">
+                <label class="form-label">Password</label>
+                <input type="password" id="password1" name="password1" class="form-control">
+              </div>
+
+            <div class="mb-4">
+              <div class="input-group input-group-dynamic">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" id="password2" name="password2" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-check form-switch mb-4 d-flex align-items-center">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                  <label class="form-check-label ms-3 mb-0" for="flexSwitchCheckDefault">I agree to the <a href="javascript:;" class="text-dark"><u>Terms and Conditions</u></a>.</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <button type="submit" class="btn bg-gradient-dark w-100">Sign Up</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  {% endblock %}
